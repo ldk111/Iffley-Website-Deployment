@@ -1,0 +1,43 @@
+<!-- homepage.html -->
+{% extends 'iffley_app/layouts/main.html' %}
+
+{% block title %}
+Iffley E-Guidebook
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="jumbotron mt-5">
+
+    <h1 class="display-4">Welcome to the Iffley E-Guidebook</h1>
+
+    <p class="lead">This is a collection of all the routes within the Iffley guide, with grades holds and pictures to help users of the wall.</p>
+    
+    <hr class="my-4">
+
+    <b>Rules </b>
+
+    <ul>
+
+    <li>Most routes are sit starts. For these routes, any hold you can reach with your bum on the floor is an allowed starting hold.</li>
+    <li>For stand start routes, the holds for the standing start are in ( brackets ) and are highlighted in green.</li>
+    <li>The finish hold is the final hold listed, it is highlighted in red.</li>
+    <li>You do not need to match the final hold, one hand is enough.</li>
+
+    </ul>
+
+    <b>Grades</b>
+
+    <p>A variety of different grading systems have been used at Iffley, of varying helpfulness and quality. The most commonly used grade is the Iffley tech grade. These are loosely based on British tech grades but do not track them precisely, a rough visual guide is included below.</p>
+
+    <p>For beginners to the wall I would suggest starting out in the 4s to get accustomed to the wall and the holds. 5a through 5c can be considered intermediate problems and 6s are generally considered hard.</p>
+
+    <a class="btn btn-primary btn-lg w-100" href="{% url 'routes' %}" role="button">Routes</a>
+
+  </div>
+  
+</div>
+
+{% endblock content %}

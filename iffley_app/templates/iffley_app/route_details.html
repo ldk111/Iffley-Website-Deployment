@@ -1,0 +1,64 @@
+<!-- route_details.html -->
+{% extends 'iffley_app/layouts/main.html' %}
+
+{% block title%}
+{{route.name}}
+{% endblock title%}
+
+{% block content %}
+
+<style>
+h5 {word-spacing: 10px;}
+</style>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class = "text-center">
+
+      <h4><b>
+        {{route.name}}
+
+        {%if route.b_grade.grade != "0"%}
+        {{route.b_grade.grade}}
+        {%endif%}
+
+        {%if route.tech_grade.grade != "0"%}
+        {{route.tech_grade.grade}}
+        {%endif%}
+
+        {%if route.furlong_grade.grade != "0"%}
+        {{route.furlong_grade.grade}}
+        {%endif%}
+
+        {%if route.other_grade != "0"%}
+        {{route.other_grade}}
+        {%endif%}</b></h4>
+
+    </div>
+
+    <p></p>
+
+    <div style = "max-width: 100%; height: auto;">
+
+    <p>
+      {% if route.image %}
+      <img src="{{ route.image.url }}" style = "width: 100%; height: auto;" alt="Route Image">
+      {% endif %}
+    </p>
+
+    </div>
+
+    <div class = "text-center">
+
+      <h5><b>{{route.holds_str}}</b></h5>
+      {{route.description}}
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock content %}
