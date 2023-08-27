@@ -1,17 +1,29 @@
 import sys
-sys.path.append('C:\\Users\\luke\\OneDrive\\Documents\\Iffley App\\iffley_v1')
+sys.path.append('C:\\Users\\luke\\OneDrive\\Documents\\Iffley Backup\\iffley_v1\\Iffley-Website-Deployment')
 
 from ast import literal_eval
 import os
 import django
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'iffley_v1.settings')
-django.setup()
+if __name__ == "__main__":
+    django.setup()
 
 import pandas as pd
-from django.db import transaction
+#from django.db import transaction
 from django.core.files import File
 from iffley_app.models import *
+import psycopg2
+
+from iffley_v1.settings import DATABASES
+
+conn=psycopg2.connect(database = DATABASES["default"]["NAME"],
+                      user = DATABASES["default"]["USER"],
+                      password = DATABASES["default"]["PASSWORD"],
+                      host = DATABASES["default"]["HOST"],
+                      port = DATABASES["default"]["PORT"],)
+
+cursor = conn.cursor()
 
 #path depends on visual studios open folder location
 df_holds = pd.read_csv("scripts\df_holds.csv")
@@ -31,37 +43,36 @@ df_techgrades = pd.read_csv("scripts\df_techgrade.csv")
 df_furlonggrades = pd.read_csv("scripts\df_furlonggrade.csv")
 df_sections = pd.read_csv("scripts\df_sections.csv")
 
-@transaction.atomic
+
 def create_holds_from_dataframe(df):
     for _, row in df.iterrows():
         my_hold = Hold(name=row['index'], pixels_x1=row['pixel_x1'], pixels_x2=row['pixel_x2'], pixels_y1=row['pixel_y1'], pixels_y2=row['pixel_y2'])
         my_hold.save()
 
-@transaction.atomic
+
 def create_tech_grades(df):
     for _, row in df.iterrows():
         grade = TechGrade(grade = row['grade'])
         grade.save()
 
-@transaction.atomic
 def create_b_grades(df):
     for _, row in df.iterrows():
         grade = BGrade(grade = row['grade'])
         grade.save()
 
-@transaction.atomic
+
 def create_furlong_grades(df):
     for _, row in df.iterrows():
         grade = FurlongGrade(grade = row['grade'])
         grade.save()
 
-@transaction.atomic
+
 def create_sections(df):
     for _, row in df.iterrows():
         section = Section(short_name = row["short_name"], long_name = row["long_name"])
         section.save()
 
-@transaction.atomic
+
 def create_routes_from_dataframe(df):
     for _, row in df.iterrows():
 
