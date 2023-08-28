@@ -26,7 +26,7 @@ class Route(models.Model):
     name = models.CharField(max_length=50)
     holds = models.ManyToManyField(Hold, related_name = 'holds')
     start_holds = models.ManyToManyField(Hold, related_name = 'starting_holds')
-    image = models.ImageField(blank = True, null = True, upload_to = "img")
+    image = models.ImageField(blank = True, null = True, upload_to = "img/")
     holds_str = models.TextField(blank = True, null = True)
     stand_start = models.BooleanField(blank = True, null = True)
     tech_grade = models.ForeignKey(TechGrade, related_name = "tech_grade", on_delete=models.CASCADE, null = True, blank = True)

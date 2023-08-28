@@ -6,7 +6,7 @@
 {% endblock title%}
 
 {% block content %}
-
+{% load static %}
 <style>
 h5 {word-spacing: 10px;}
 </style>
@@ -44,7 +44,7 @@ h5 {word-spacing: 10px;}
 
     <p>
       {% if route.image %}
-      <img src="{{ route.image.url }}" style = "width: 100%; height: auto;" alt="Route Image">
+      <img src="{{route_url}}" style = "width: 100%; height: auto;" alt="Route Image">
       {% endif %}
     </p>
 

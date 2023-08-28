@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .forms import FilterGrades, SearchBar
 from django.db.models import Q
+from django.conf import settings
 
 from .models import *
 
@@ -37,6 +38,6 @@ def routes(request):
 def route_details(request, route_id):
 
     route = get_object_or_404(Route, id=route_id)
-    context = {'route': route}
+    context = {'route': route, 'route_url': settings.STATIC_URL + str(route.image) if route.image else None}
 
     return render(request, 'iffley_app/route_details.html', context)
