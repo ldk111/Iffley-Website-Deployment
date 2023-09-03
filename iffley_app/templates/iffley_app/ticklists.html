@@ -1,0 +1,95 @@
+{% extends 'iffley_app/layouts/main.html' %}
+
+{% block title %}
+Ticklists
+{% endblock title %}
+{%block content%}
+<div class = "container">
+{%for key, values in ticklists.items %}
+
+    <div class="record-container">
+
+        <div class = "row">
+
+            <div class = "col-md-12">
+
+                <center><h3><b>{{key}}</b></h3></center>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class = "record-container">
+
+        <div class = "row">
+
+            <div class = "col-md-4">
+            <b>Name</b>
+            </div>
+        
+            <div class = "col-md-1">
+            <b>Grade</b>
+            </div>
+
+            <div class = "col-md-4">
+            <b>Holds</b>
+            </div>
+
+        </div>
+
+    </div>
+
+    {%for r in routes %}
+        
+        {% for value in values %}
+
+            {%if r.name in value%}
+
+            <div class="record-container">
+
+                <div class = "row">
+                    <div class = "col-md-4">
+
+                        <a href="{% url 'route_details' r.id %}">
+                        <h4 class="record-name">  {{r.name}}  </h4></a>
+
+                    </div>
+
+                    <div class = "col-md-1">
+
+                        {%if r.b_grade.grade != "0"%}
+                        {{r.b_grade.grade}}
+                        {%endif%}
+                        {%if r.tech_grade.grade != "0"%}
+                        {{r.tech_grade.grade}}
+                        {%endif%}
+                        {%if r.furlong_grade.grade != "0"%}
+                        {{r.furlong_grade.grade}}
+                        {%endif%}
+                        {%if r.other_grade != "0"%}
+                        {{r.other_grade}}
+                        {%endif%}
+
+                    </div>
+
+                    <div class = "col-md-4">
+
+                        {{r.holds_str}}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {%endif%}
+
+        {%endfor%}
+
+    {%endfor%}
+
+{% endfor %}
+</div>
+{%endblock content%}

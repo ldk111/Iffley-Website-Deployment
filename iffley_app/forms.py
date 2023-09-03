@@ -11,4 +11,4 @@ class FilterGrades(forms.Form):
         self.fields['grades'].choices = [(grade.id, grade.grade) for grade in TechGrade.objects.all()]
 
 class SearchBar(forms.Form):
-    search = forms.CharField(max_length = 200, required = False)
+    search = forms.CharField(max_length = 200, required = False, strip = True)
