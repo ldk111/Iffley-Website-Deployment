@@ -35,6 +35,7 @@ def routes(request):
 
     section_ids_with_routes = set(routes.values_list('section__id', flat=True))
     sections = sections.filter(id__in=section_ids_with_routes)
+    routes = routes.order_by('tech_grade__grade')
 
     return render(request, "iffley_app/routes.html", {"form":form, "searchbar": searchbar, 'routes':routes, 'sections': sections})
 
