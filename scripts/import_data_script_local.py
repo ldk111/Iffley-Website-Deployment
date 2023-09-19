@@ -40,7 +40,7 @@ def create_holds_from_dataframe(df):
 @transaction.atomic
 def create_tech_grades(df):
     for _, row in df.iterrows():
-        grade = TechGrade(grade = row['grade'])
+        grade = TechGrade(grade = row['grade'], rank = row["rank"])
         grade.save()
 
 @transaction.atomic

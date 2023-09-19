@@ -35,7 +35,7 @@ def routes(request):
 
     section_ids_with_routes = set(routes.values_list('section__id', flat=True))
     sections = sections.filter(id__in=section_ids_with_routes)
-    routes = routes.order_by('tech_grade__grade')
+    routes = routes.order_by('tech_grade__rank')
 
     return render(request, "iffley_app/routes.html", {"form":form, "searchbar": searchbar, 'routes':routes, 'sections': sections})
 
@@ -62,3 +62,13 @@ def ticklists(request):
     context = {'routes': routes, "ticklists": ticklists}
 
     return render(request, 'iffley_app/ticklists.html', context)
+
+def circuits(request):
+
+    routes = Route.objects.all()
+
+    circuits = {"The Freshers Circuit": ["Easy Ladder", "Traverse", "Twisted Ladder", "Severely Unimpressed", "Girdering for Beginners", "Sideways", "Rock Over", "Press", "Dobsons Reach", "Sit Start for Beginners", "Five Finger Discount", "Lock, Slot, and Two Smoking Barrels"]}
+                 
+    context = {'routes': routes, "circuits": circuits}
+
+    return render(request, 'iffley_app/circuits.html', context)

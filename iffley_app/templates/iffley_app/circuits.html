@@ -1,31 +1,43 @@
 {% extends 'iffley_app/layouts/main.html' %}
 
 {% block title %}
-Tick Lists
+Circuits
 {% endblock title %}
 {%block content%}
 <hr>
 <div class = "container">
-    <p>Tick lists are a group of problems designed to be completed together, all of a similar grade or style. These may be longer term goals which you work towards completing over multiple sessions and will give a good grasp of Iffley for different grades and styles.</p>
-    <p>These tick lists are taken from the original guide by Steve Broadbent and contain the best and most classic problems at each grade, featuring good climbing and historical significance in the development of Iffley bouldering.</p>
+    <p>According to Steve Broadbent, circuits were initially a selection of problems that people were using to warm up before working on harder projects.</p> 
+    <p>The goal is to try and climb all problems of a circuit in a single session and some people even go as far as to try and complete them as fast as possible, known as speed circuiting!</p>
+    <p>Where known, I have included the current speed records from the Iffley Guidebook.</p>
 </div>
 <hr>
 <div class = "container">
-{%for key, values in ticklists.items %}
+{%for key, values in circuits.items %}
 
-    <div class="record-container">
+
+    <div class = "row">
+        <div class = "col-md-12">
+            <center><h3><b>{{key}}</b></h3></center>
+        </div>
+    </div>
 
         <div class = "row">
 
             <div class = "col-md-12">
-
-                <center><h3><b>{{key}}</b></h3></center>
+                {%if key == "The Freshers Circuit"%}
+                    
+                    <p>A collection of the walls easiest problems, designed to challenge people who have never climbed before. They require a range of different fundamental techniques to complete, and can be done with  very little strength. 
+                        All are short person friendly, and have been climbed in trainers. Those who complete it or find it too easy should move up to <b>The Welcome Circuit</b> then <b>The Purple Circuit</b>.</p>
+                    <p>Most of the problems have holds in brackets at the start; these are the starting holds and you can start however you like so long as you only use these holds. If there are no bracketed holds at the start then it is a sit 
+                        start; you must start from sitting on the ground and pull onto the wall using any holds in the problem.</p>
+                    <p>The last hold is a bonus hold, and the problem is graded excluding this. It is there to provide an extra challenge for those who found the problem too easy.</p>
+                    <center><h7><b>Credit: Magnus Cheung</b></h7></center>
+                    <br>
+                {% endif %}
 
             </div>
 
         </div>
-
-    </div>
 
     <div class = "record-container">
 

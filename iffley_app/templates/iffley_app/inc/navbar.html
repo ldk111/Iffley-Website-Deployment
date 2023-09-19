@@ -24,9 +24,15 @@
 
               <li class="nav-item">
 
-                  <a class="nav-link {% if request.path == '/ticklists/' %}active{% endif %}" href="{% url 'ticklists' %}">Ticklists</a>
+                  <a class="nav-link {% if request.path == '/ticklists/' %}active{% endif %}" href="{% url 'ticklists' %}">Tick Lists</a>
 
               </li>
+
+              <li class="nav-item">
+
+                <a class="nav-link {% if request.path == '/circuits/' %}active{% endif %}" href="{% url 'circuits' %}">Circuits</a>
+
+            </li>
 
           </ul>
 

@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.home, name ="home"),
     path('routes/', views.routes, name="routes"),
     path('route/<int:route_id>', views.route_details, name='route_details'),
-    path('ticklists/', views.ticklists, name="ticklists")
+    path('ticklists/', views.ticklists, name="ticklists"),
+    path('circuits/', views.circuits, name="circuits")
 ]

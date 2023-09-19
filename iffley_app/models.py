@@ -10,6 +10,7 @@ class Hold(models.Model):
 
 class TechGrade(models.Model):
     grade = models.CharField(max_length = 50, unique = True)
+    rank = models.IntegerField(null = True, blank = True)
 
 class FurlongGrade(models.Model):
     grade = models.CharField(max_length = 50, unique = True)

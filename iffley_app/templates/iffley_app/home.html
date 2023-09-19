@@ -1,8 +1,9 @@
 <!-- homepage.html -->
 {% extends 'iffley_app/layouts/main.html' %}
+{%load static%}
 
 {% block title %}
-Iffley E-Guidebook
+Iffley Web Guide
 {% endblock title %}
 
 {% block content %}
@@ -11,37 +12,47 @@ Iffley E-Guidebook
 
   <div class="jumbotron mt-5">
 
-    <h1 class="display-4">Welcome to the Iffley E-Guidebook</h1>
+    <h1 class="display-4">Welcome to the Iffley Web Guide</h1>
 
-    <p class="lead">This is a collection of all the routes within the Iffley guide, with grades holds and pictures to help users of the wall.</p>
+    <p class="lead">A digital collection of the routes from Iffley Road Climbing Wall, with grades, holds, and pictures to help climbers use the wall.</p>
     
     <hr class="my-4">
 
     <b>Rules </b>
 
-    <ul>
+    <ol>
 
-    <li>Most routes are sit starts. For these routes, any hold you can reach with your bum on the floor is an allowed starting hold.</li>
-    <li>For stand start routes, the holds for the standing start are in ( brackets ) and are highlighted in green.</li>
+    <li>Most routes are sit starts. For these routes, any hold you can reach while sat on the floor is an allowed starting hold.</li>
+    <li>For stand start routes, the holds for the standing start are in ( brackets ) and are highlighted in green, you must only use these holds to start.</li>
     <li>The finish hold is the final hold listed, it is highlighted in red.</li>
     <li>You do not need to match the final hold, one hand is enough.</li>
+    <li>Chips are always allowed for feet, but only allowed as hands for problems 5c and harder unless otherwise specified.</li>
 
-    </ul>
+    </ol>
 
     <b>Grades</b>
 
-    <p>A variety of different grading systems have been used at Iffley, of varying helpfulness and quality. The most commonly used grade is the Iffley tech grade. These are loosely based on British tech grades but do not track them precisely, a rough visual guide is included below.</p>
-
-    <p><b>INCLUDE REFERENCE IMAGE</p></b>
-
+    <p>A variety of different grading systems have been used at Iffley, of varying helpfulness and quality. The most commonly used grade is the Iffley Tech Grade. These are loosely based on British tech grades but do not track them precisely, a rough visual guide is included below.</p>
+    <br>
+    <center><img src="{%static 'grades.png'%}" style = "width: 30%; height: auto;" alt="Table for grade conversion."></center>
+    <br>
     <p>For beginners to the wall I would suggest starting out in the 4s to get accustomed to the wall and the holds. 5a through 5c can be considered intermediate problems and 6s are generally considered hard.</p>
-
-    <a class="btn btn-primary btn-lg w-100" href="{% url 'routes' %}" role="button">Routes</a>
+    <p>The other main type of grade used at Iffley is the B grade. These work much like the adjectival grades in UK trad climbing (e.g HVS, E1, VDiff) and give an overall impression as to how hard the problem is, accounting for technical difficulty, length, and risk of injury.</p>
 
     <b>Credits</b>
 
-    <p>Full credits and thanks go to Steve Broadbent for creating this guide in the first place. Also huge thanks to Jacob Armstrong for his work on the highlighted hold image generator.</p>
+    <p>Full credits and thanks go to Steve Broadbent for creating the original guide with all the routes, tick lists, and circuits in the first place. If there are any physical guides on sale I would highly recommend buying one, he includes loads of history about the wall and a lot more interesting information about the climbs and bouldering in Oxford generally. Also an enormous thank you to Magnus Cheung for his continued work at Iffley and dedication to the wall, giving amazing feedback and creating new routes. Huge thanks to Jacob Armstrong for his initial work on generating the images with highlighted holds.</p>
+
+    <a class="btn btn-primary btn-lg w-100" href="{% url 'routes' %}" role="button">Routes</a>
+    <p></p>
+    <a class="btn btn-primary btn-lg w-100" href="{% url 'ticklists' %}" role="button">Ticklists</a>
+    <p></p>
+    <a class="btn btn-primary btn-lg w-100" href="{% url 'circuits' %}" role="button">Circuits</a>
+    <br>
+    <br>
+
   </div>
+
   
 </div>
 

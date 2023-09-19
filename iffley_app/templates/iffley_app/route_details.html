@@ -53,7 +53,9 @@ h5 {word-spacing: 10px;}
     <div class = "text-center">
 
       <h5><b>{{route.holds_str}}</b></h5>
-      {{route.description}}
+      {% if route.description != "0"%}
+        {{route.description}}
+      {%endif%}
 
     </div>
 
